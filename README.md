@@ -88,7 +88,7 @@ class HealthProtocol extends StandardProtocol
 }
 ```
 
-To see complete example code of protocols and formats, please see [example#02](./example/02-define-protocol.php).
+To see complete example code of protocols and formats, please see [example#02](./example/02-define-protocol.php). Also a complex example is seen in [./tests/ExampleModel/StudentProtocol.php](./tests/ExampleModel/StudentProtocol.php)
 
 #### Installation via Composer
 ``` bash
