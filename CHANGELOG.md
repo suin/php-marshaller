@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.0.1](https://github.com/suin/php-marshaller/tree/1.0.1) (2018-01-03)
+[Full Changelog](https://github.com/suin/php-marshaller/compare/1.0.0...1.0.1)
+
+**Closed issues:**
+
+- Standardize the coding style with PHP-CS-Fixer. [\#2](https://github.com/suin/php-marshaller/issues/2)
+
 ## [1.0.0](https://github.com/suin/php-marshaller/tree/1.0.0) (2017-12-29)
 **Implemented enhancements:**
 
