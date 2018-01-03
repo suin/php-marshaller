@@ -1,8 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller\ExampleModel;
-
 
 class StudentName
 {
@@ -17,14 +17,14 @@ class StudentName
     private $lastName;
 
     /**
-     * @var string|null
+     * @var null|string
      */
     private $middleName;
 
     /**
      * @param string      $firstName
      * @param string      $lastName
-     * @param string|null $middleName
+     * @param null|string $middleName
      */
     public function __construct(string $firstName, string $lastName, ?string $middleName = null)
     {

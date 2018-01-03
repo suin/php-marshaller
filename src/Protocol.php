@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller;
@@ -13,29 +14,9 @@ class Protocol
     /**
      * @param object[] $formats
      */
-    public function __construct(... $formats)
+    public function __construct(...$formats)
     {
         array_walk($formats, [$this, 'add']);
-    }
-
-    /**
-     * Add a format to this protocol
-     *
-     * @param object $format
-     * @return self
-     */
-    private function add($format): self
-    {
-        assert(is_object($format));
-        assert(method_exists($format, 'read'));
-        assert(method_exists($format, 'write'));
-        $read = new \ReflectionMethod($format, 'read');
-        $type = $read->getReturnType();
-        assert($type instanceof \ReflectionType);
-        $typeName = $type->getName();
-        assert(!array_key_exists($typeName, $this->formats));
-        $this->formats[$typeName] = $format;
-        return $this;
     }
 
     /**
@@ -65,5 +46,25 @@ class Protocol
     public function write($value, string $type)
     {
         return $this->formats[$type]->write($value);
+    }
+
+    /**
+     * Add a format to this protocol.
+     *
+     * @param object $format
+     * @return self
+     */
+    private function add($format): self
+    {
+        assert(is_object($format));
+        assert(method_exists($format, 'read'));
+        assert(method_exists($format, 'write'));
+        $read = new \ReflectionMethod($format, 'read');
+        $type = $read->getReturnType();
+        assert($type instanceof \ReflectionType);
+        $typeName = $type->getName();
+        assert(!array_key_exists($typeName, $this->formats));
+        $this->formats[$typeName] = $format;
+        return $this;
     }
 }

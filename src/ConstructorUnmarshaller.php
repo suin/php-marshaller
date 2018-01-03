@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller;
@@ -21,8 +22,8 @@ class ConstructorUnmarshaller
     /**
      * @param mixed  $data
      * @param string $typeExpression
-     * @return object|array
      * @throws \TypeError
+     * @return array|object
      */
     public function unmarshal($data, string $typeExpression)
     {
@@ -56,16 +57,16 @@ class ConstructorUnmarshaller
         $parameters = $constructor->getParameters();
         $arguments = self::map($parameters, function (\ReflectionParameter $parameter) use ($data) {
             $parameterName = $parameter->getName();
+
             if (($type = $parameter->getType()) && $type->isBuiltin() === false) {
                 $typeName = $type->getName();
+
                 if ($this->protocol->has($typeName)) {
                     return $this->protocol->read($data[$parameterName] ?? null, $typeName);
-                } else {
-                    return $this->unmarshalData($data[$parameterName] ?? [], $type->getName());
                 }
-            } else {
-                return $data[$parameterName] ?? null;
+                return $this->unmarshalData($data[$parameterName] ?? [], $type->getName());
             }
+            return $data[$parameterName] ?? null;
         });
         return new $typeExpression(...$arguments);
     }

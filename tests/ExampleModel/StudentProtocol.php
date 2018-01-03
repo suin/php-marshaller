@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller\ExampleModel;
@@ -17,8 +18,7 @@ class StudentProtocol extends StandardProtocol
 
     private function studentIdFormat()
     {
-        return new class
-        {
+        return new class {
             public function read(int $value): StudentId
             {
                 return new StudentId($value);
@@ -33,8 +33,7 @@ class StudentProtocol extends StandardProtocol
 
     private function gradeFormat()
     {
-        return new class
-        {
+        return new class {
             public function read(string $grade): Grade
             {
                 switch ($grade) {
@@ -47,7 +46,7 @@ class StudentProtocol extends StandardProtocol
                     case 'senior':
                         return Grade::senior();
                     default:
-                        throw new \LogicException("Unknown grade: $grade");
+                        throw new \LogicException("Unknown grade: ${grade}");
                 }
             }
 
@@ -63,7 +62,7 @@ class StudentProtocol extends StandardProtocol
                     case $grade->isSenior():
                         return 'senior';
                     default:
-                        throw new \LogicException("Unknown grade: $grade");
+                        throw new \LogicException("Unknown grade: ${grade}");
                 }
             }
         };

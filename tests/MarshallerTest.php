@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller;
@@ -18,7 +19,7 @@ class MarshallerTest extends TestCase
      * @param          $object
      * @param          $expect
      */
-    public function testMarshall(Protocol $protocol, $object, $expect)
+    public function testMarshall(Protocol $protocol, $object, $expect): void
     {
         $marshaller = new Marshaller($protocol);
         $output = $marshaller->marshall($object);
