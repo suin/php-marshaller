@@ -96,10 +96,6 @@ class HealthProtocol extends StandardProtocol
 
 To see complete example code of protocols and formats, please see [example#02](./example/02-define-protocol.php). Also a complex example is seen in [./tests/ExampleModel/StudentProtocol.php](./tests/ExampleModel/StudentProtocol.php)
 
-## License
-
-This library is licensed under the MIT license. Please see [LICENSE](LICENSE.md) for more details.
-
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more details.
