@@ -1,8 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller\ExampleModel;
-
 
 class StudentId
 {

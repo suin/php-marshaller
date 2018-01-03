@@ -1,14 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller\ExampleModel;
 
-
 class Grade
 {
     private const FRESHMAN = 1;
+
     private const SOPHOMORE = 2;
+
     private const JUNIOR = 3;
+
     private const SENIOR = 4;
 
     /**
@@ -21,22 +24,22 @@ class Grade
         $this->grade = $grade;
     }
 
-    public static function freshman(): Grade
+    public static function freshman(): self
     {
         return new self(self::FRESHMAN);
     }
 
-    public static function sophomore(): Grade
+    public static function sophomore(): self
     {
         return new self(self::SOPHOMORE);
     }
 
-    public static function junior(): Grade
+    public static function junior(): self
     {
         return new self(self::JUNIOR);
     }
 
-    public static function senior(): Grade
+    public static function senior(): self
     {
         return new self(self::SENIOR);
     }

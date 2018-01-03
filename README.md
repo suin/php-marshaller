@@ -1,6 +1,6 @@
 Marshaller
 ================
-[![travis-ci-badge]][travis-ci] [![packagist-dt-badge]][packagist]
+[![travis-ci-badge]][travis-ci] [![packagist-dt-badge]][packagist] [![license-badge]][license] [![release-version-badge]][packagist] ![php-version-badge]
 
 Type-safe data mapping between JSON and a PHP class object.
 
@@ -12,6 +12,12 @@ Type-safe data mapping between JSON and a PHP class object.
 ## How does it works?
 
 Marshaller analyze all private properties and convert them into JSON. Unmarshaller analyze the signature of the constructor of the given class and convert JSON into an object.
+
+## Installation via Composer
+
+``` bash
+$ composer require suin/marshaller
+```
 
 ## Usage
 
@@ -90,23 +96,16 @@ class HealthProtocol extends StandardProtocol
 
 To see complete example code of protocols and formats, please see [example#02](./example/02-define-protocol.php). Also a complex example is seen in [./tests/ExampleModel/StudentProtocol.php](./tests/ExampleModel/StudentProtocol.php)
 
-#### Installation via Composer
-``` bash
-$ composer require suin/marshaller
-```
+## License
 
-#### Running tests
-``` bash
-$ composer test
-```
-
-#### License
 This library is licensed under the MIT license. Please see [LICENSE](LICENSE.md) for more details.
 
-#### Changelog
+## Changelog
+
 Please see [CHANGELOG](CHANGELOG.md) for more details.
 
-#### Contributing
+## Contributing
+
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for more details.
 
 <!-- Badges -->
@@ -114,3 +113,7 @@ Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for more details.
 [travis-ci-badge]: https://img.shields.io/travis/suin/php-marshaller.svg?style=flat-square
 [packagist]: https://packagist.org/packages/suin/marshaller
 [packagist-dt-badge]: https://img.shields.io/packagist/dt/suin/marshaller.svg?style=flat-square
+[license]: LICENSE.md
+[license-badge]: https://img.shields.io/github/license/suin/php-marshaller.svg?style=flat-square
+[php-version-badge]: https://img.shields.io/packagist/php-v/suin/marshaller.svg?style=flat-square
+[release-version-badge]: https://img.shields.io/packagist/v/suin/marshaller.svg?style=flat-square&label=release

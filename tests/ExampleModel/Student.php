@@ -1,8 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller\ExampleModel;
-
 
 class Student
 {
@@ -44,8 +44,7 @@ class Student
         Grade $grade,
         \DateTime $registrationDate,
         string $email
-    )
-    {
+    ) {
         $this->id = $id;
         $this->name = $name;
         $this->grade = $grade;

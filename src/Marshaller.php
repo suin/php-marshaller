@@ -1,8 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller;
-
 
 class Marshaller
 {
@@ -36,23 +36,25 @@ class Marshaller
         assert(is_object($object));
         $objectInfo = new \ReflectionObject($object);
         $className = $objectInfo->getName();
+
         if ($this->protocol->has($className)) {
             return $this->protocol->write($object, $className);
-        } else {
-            $data = [];
-            $properties = $objectInfo->getProperties();
-            foreach ($properties as $property) {
-                if ($property->isDefault() && !$property->isStatic()) {
-                    $property->setAccessible(true);
-                    $value = $property->getValue($object);
-                    $value = (is_object($value) || is_array($value)) ? $this->marshall($value) : $value;
-                    if ($value !== null) {
-                        $data[$property->getName()] = $value;
-                    }
+        }
+        $data = [];
+        $properties = $objectInfo->getProperties();
+
+        foreach ($properties as $property) {
+            if ($property->isDefault() && !$property->isStatic()) {
+                $property->setAccessible(true);
+                $value = $property->getValue($object);
+                $value = (is_object($value) || is_array($value)) ? $this->marshall($value) : $value;
+
+                if ($value !== null) {
+                    $data[$property->getName()] = $value;
                 }
             }
-            return $data;
         }
+        return $data;
     }
 
     private function marshallCollection(array $objects): array

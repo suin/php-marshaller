@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller;
@@ -10,7 +11,7 @@ class StandardProtocol extends Protocol
     /**
      * @param object[] $formats
      */
-    public function __construct(... $formats)
+    public function __construct(...$formats)
     {
         parent::__construct(
             new DateTimeFormat,

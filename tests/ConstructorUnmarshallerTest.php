@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Marshaller;
@@ -19,7 +20,7 @@ class ConstructorUnmarshallerTest extends TestCase
      * @param string   $class
      * @param object   $expected
      */
-    public function testUnmarshal(Protocol $protocol, $data, string $class, $expected)
+    public function testUnmarshal(Protocol $protocol, $data, string $class, $expected): void
     {
         $marshaller = new ConstructorUnmarshaller($protocol);
         $output = $marshaller->unmarshal($data, $class);
